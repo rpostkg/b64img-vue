@@ -3,7 +3,6 @@ import { ref, computed } from 'vue'
 import { useClipboard } from '@vueuse/core'
 
 const encodedResult = ref('')
-const isEncoding = ref(false)
 const { copy, copied, isSupported } = useClipboard()
 const decodeInput = ref('')
 
@@ -11,7 +10,6 @@ const handleFileUpload = (event) => {
   const file = event.target.files[0]
   if (!file) return
 
-  isEncoding.value = true
   const reader = new FileReader()
 
   reader.onload = () => {
